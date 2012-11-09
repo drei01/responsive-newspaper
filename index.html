@@ -1,1 +1,858 @@
-Teest
+
+<!doctype html>
+
+
+<head>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+<title>Example - Dummy, for Rapid Prototyping and QA</title>
+<meta name="description" content="Dummy is a toolkit for rapid prototyping and QA.">
+<meta name="keywords" content="Lorem Ipsum, Lorem Ipsum Generator, Prototyping, HTML Prototyping, CSS Prototyping, Prototyping in the Browser, In Browser Design, Designing in the Browser, Content Generation"
+<meta name="author" content="David Kerns">
+
+<style type="text/css" media="screen">
+ 
+  /* The Mighty Meyer Reset – http://meyerweb.com/eric/tools/css/reset/ */
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+   display: block;
+  }
+  body {
+   line-height: 1;
+  }
+  ol, ul {
+   list-style: none;
+  }
+  blockquote, q {
+   quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+   content: '';
+   content: none;
+  }
+  table {
+   border-collapse: collapse;
+   border-spacing: 0;
+  }
+
+  /* Begin Example */
+  body {
+    background: #efefef url("/img/bg.png");
+    font:normal 1em/1.3em 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    margin:0 2%
+  }
+
+  #main {
+    background-color: #fff;
+    border:1px solid #a8a8a8;
+    border-color: #cfcfcf #a8a8a8 #555 #a8a8a8;
+    margin:0 auto 5em auto;
+    max-width:1800px;
+    min-width:320px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .45);
+    border-radius:4px;
+  }
+
+  #main .col {
+    float:left;
+    overflow:hidden;
+    width: 100%;
+  }
+    
+  #main .col article {
+    padding:1em 1em .25em
+  }
+
+  #main .col img {
+    margin-bottom: .5em;
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, .55);
+    
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #efefef;
+    background-image: -webkit-linear-gradient(left, #eee, #e3e3e3, #eee);
+    background-image:    -moz-linear-gradient(left, #eee, #e3e3e3, #eee);
+    background-image:     -ms-linear-gradient(left, #eee, #e3e3e3, #eee);
+    background-image:      -o-linear-gradient(left, #eee, #e3e3e3, #eee);
+    margin:0
+  }
+
+  article a, article a p, article a h2, article a h3 {
+    color:#444;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+  .article-wrapper {
+    border-radius:3px;
+    margin:8px;
+  }
+
+  .article-wrapper:hover {
+    background-color: #f4f4f4;
+  }
+
+  .article-wrapper:hover img {
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, .75);
+  }
+
+  /* Basic Typograhy */
+
+  h1,h2,h3,h4,h5,h6 {
+    color:#555;
+    line-height: 1.2em;
+    font-weight: normal;
+    margin: 0 0 .5em 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h2 {
+    font-size:1.9em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover {color: #333}
+
+  p {
+    color:#555 !important;
+    margin: 0 0 1em 0;
+  }
+
+  em {
+    color:#777;
+    font-size: .75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin:-.3em;
+    padding:.2em .4em;
+    position:relative;
+    top:-.5em;
+    text-decoration: none;
+    z-index: 0;
+  }
+
+  p.caption {
+    color:#888;
+    font-size:.8em;
+    line-height: 1.2em;
+    font-style:italic;
+    position: relative;
+    top:-.25em;
+  }
+
+  p.caption b {
+    color:#666;
+    font-weight: bold
+    }
+
+  /* Recommended */
+  .recommended small {
+    font-size:.8em;
+    color:#888;
+    display: block;
+    margin-bottom: .5em;
+  }
+
+  .recommended img {
+    border:2px double #fff;
+    border-radius:2px;
+    margin-right: 2px;
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, .35);
+    margin:0 .25em 0 0;
+  }
+
+  .recommended img:hover {
+    border-color:#fff;
+    box-shadow: 0 0 5px #0FF;
+  }
+
+
+  /* Reload */
+  #reload {
+    border-radius:30px;
+    height: 60px;
+    max-height: 60px;
+    width:60px;
+    background:rgba(255,255,255,.6) no-repeat  9px -96px  url("/img/sprite.png");
+    display: block;
+    color:#888;
+    cursor:hand;
+    font: normal 15px 'Lucida Grande', Lucida, Helvetica, Arial, sans-serif;
+    position: relative;
+    top:5px;
+    margin: 4.5em auto 1.8em auto;
+    box-shadow: 0 3px 10px rgba(50,50,50,.3), 0 3px 0px rgba(0,0,0,.3), 0px 3px 5px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(100,100,100,.5);
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    opacity:0;
+  }
+
+  #reload:hover {
+    background-color: rgba(255,255,255,.4);
+    background-position: 9px -165px;
+  }
+  
+  #reload:active {
+    background-color: rgba(150,150,150,.1);
+    background-position: 9px -163px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.7), inset 0px 3px 0px rgba(0,0,0,0.5), inset 0 0 20px rgba(100,100,100,.6), inset 0 -1px 1px rgba(255,255,255,1);
+    background-position: 9px -232px;
+  }
+
+  /* Footer*/
+  footer {
+    color:#999;
+    font-size: .9em;
+    text-align: center;
+    padding: 0 1em 5em 1em;
+    text-shadow: 0 1px 0 rgba(255,255,255,1);
+  }
+
+  /* Helper classes */
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table
+  }
+  
+  .clearfix:after {
+    clear: both
+  }
+  
+  .clearfix {
+    zoom: 1
+  }
+
+
+/* Begin Media Queries */
+/* Adding columns for progressively larger viewports */
+
+  @media only screen and (min-width: 560px) {
+    #main {
+      background-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAOTk5AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==),
+      url(data:image/gif;base64,R0lGODlhAQABAIAAAOTk5AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==),
+      url(data:image/gif;base64,R0lGODlhAQABAIAAAOTk5AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==),
+      url(data:image/gif;base64,R0lGODlhAQABAIAAAOTk5AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==)}
+    #main {background-repeat: repeat-y}
+    #main {background-position: 50% 0}
+    #main .col {width:50%}
+    #main .col:nth-child(3), #main .col:nth-child(4), #main .col:nth-child(5) {display: none}
+  }
+
+  @media only screen and (min-width: 850px) {
+     #main {background-repeat: repeat-y}
+     #main {background-position: 33.3333333333% 0, 66.6666666666% 0}
+     #main .col {width:33.3333333333%}
+     #main .col:nth-child(3) {display: block}
+     #main .col:nth-child(4), #main .col:nth-child(5) {display: none}
+   }
+
+  @media only screen and (min-width:1220px) {
+    #main {background-position: 25% 0, 50% 0, 75% 0}
+    #main .col {width:25%}
+    #main .col:nth-child(4) {display: block}
+    #main .col:nth-child(5) {display: none}
+  }
+
+  @media screen and (min-width: 1550px) {
+    #main {background-position: 20% 0, 40% 0, 60% 0, 80% 0}
+    #main .col {display: block !important; width:20%}
+  }
+
+  /* Tablet Optimizations */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    h2 {font-size:1.6em}
+    h3 {font-size:1.2em}
+  }
+
+  /* iPad (portrait) */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+    #main {background-repeat: repeat-y}
+    #main {background-position: 33.3333333333% 0, 66.6666666666% 0}
+    #main .col {width:33.3333333333%}
+    #main .col:nth-child(3) {display: block}
+    #main .col:nth-child(4), #main .col:nth-child(5) {display: none}
+  }
+
+  /* iPad (landscape) */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+    #main {background-repeat: repeat-y}
+    #main {background-position: 25% 0, 50% 0, 75% 0}
+    #main .col {width:25%}
+    #main .col:nth-child(4) {display: block}
+    #main .col:nth-child(5) {display: none}
+  }
+
+  /* Media Queries, to iron out a few wrinkles */
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px), (max-width: 580px) {
+
+    body {
+      padding-top:2.5em;
+    }
+
+  }
+
+
+  /* For Retina Displays */
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    
+    #reload {
+      background-size:200px auto;
+      background-image: url("/img/sprite@2x.png");
+    }
+
+  }
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- Open Main -->
+  <div id="main" role="content">
+
+  <!-- Repeat this column 5 times -->
+        <!-- Column  -->
+    <div class="col">
+            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/webb_actuators_NASA_goddard_400x275.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Donec ullamcorper</b>. Quisque tortor ut sapien diam malesuada at hendrerit ultricies dignissim nibh. Duis vel elit pellentesque.</p>
+                <h3>Curabiturgravida, Lorem id Venenatis Sodales</h3>
+                <p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/shibuya_center_joi_ito_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Sed id Dolor Nullam Gravida</h3>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>In Pellentesque Loremat Magna, Etiam Quis Dui</h2>
+        <p>Fusce et risus nonummy neque euismod pretium. Donec dignissim ligula vitae ipsum. Maecenas a velit eu lectus blandit blandit.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/branson_jefffoust_400x275.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Donec id elit</b>. Aenean malesuada, ipsum vitae vulputate tempor ante diam malesuada ante non.</p>
+                <h3>Curabiturgravida, Lorem id Venenatis Sodales</h3>
+                <p>Cras id lorem ut at tortor. Sed turpis aliquam venenatis turpis sed nisi nulla viverra duis mattis.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/untitled_superbomba_400x581.jpg" width="100%" height="" alt="" />
+                        <h3>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit</h3>
+                <p>Donec pretium dolor et ante. Vestibulum posuere turpis sed dui.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Consectetur</em>        <a href="#">
+        <h2>Proin et Nibh Donec Feugiat Felis eu Mauris</h2>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mattis ut lacinia dignissim orci.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Praesent Velit Lorem Pulvinar Et</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/joi_ito_chiaki0808_400x581.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Duismollis</b>. Donec pretium dolor et ante. Vestibulum posuere turpis sed dui.</p>
+                <h3>Praesent Velit Lorem Pulvinar Et</h3>
+                <p>Gravida eros ut consequat risus magna eget ligula. Nullam dui orci rhoncus vitae accumsan a varius vel. Etiam ut augue ut massa congue bibendum.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@erievonioc</a></strong> and 5 others...</small>
+          <a href="#"><img src="/dummy/cache/kuwayama_balazsgardi_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/fjgaylor_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/tcv_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/solar_flare_erupts_NASA_goddard_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/garamon_ultra999_50x50.gif" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+            
+    </div>
+        <!-- Column  -->
+    <div class="col">
+            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Pellentesque Habitant Morbi Tristique Senectus</h2>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Curabiturgravida, Lorem id Venenatis Sodales</h2>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/laughing_amir_kuckovic_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Fusce Vitae Eros Nec Elit Placerat Pharetra</h3>
+                <p>Lorem ipsum dolor sit amet consectetuer  adipiscing elit.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@nurtrom7</a></strong> and 6 others...</small>
+          <a href="#"><img src="/dummy/cache/twitter_dungeon_orkboi_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/jack_ny_laverrue_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/bird_familymwr_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/avatar_socialspace_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/dl_DieEgg_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/cliche_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/owling_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pilots_earlier_at_50x50.jpg" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/fond_de_tiroir_pierre_metivier_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Praesent Velit Lorem Pulvinar Et</h3>
+                <p>Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@snackpoor</a></strong> and 10 others...</small>
+          <a href="#"><img src="/dummy/cache/avatar_jessica_mullen_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/shardrix_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/judd_avatar_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/hepburn_jagelado_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pattern_language_jessica_mullen_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/hepburn_jagelado_50x50.gif" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Donec ullamcorper</em>        <a href="#">
+        <h2>Donec et Diam: Lorem Ipsum Dolor Sit Amet</h2>
+        <p>Duis facilisis fusce fringilla. Aliquam vitae mi quis ligula dapibus tempor. Praesent mauris tortor luctus ut aliquam at aliquam eu arcu.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/italian_man_an_untrained_eye_400x275.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Nullam id dolor</b>. Donec rutrum proin lobortis purus nec libero. Pellentesque posuere diam vel quam. Mauris sed nisi nec leo accumsan interdum morbi massa.</p>
+                <h3>Duis ac Ligula at Sapien Faucibus Hendrerit</h3>
+                <p>Phasellus nec tortor elit, in porta ligula. Fusce at odio id tortor lacinia condimentum eu et arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean est ligula, porta et pellentesque eu, pulvinar nec ipsum.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@wibbue</a></strong> and 7 others...</small>
+          <a href="#"><img src="/dummy/cache/shardrix_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/fjgaylor_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/tcv_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/jack_ny_laverrue_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/owling_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/judd_avatar_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pattern_language_jessica_mullen_50x50.jpg" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/burj_al_arab_joi_ito_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Proin et Massa at Nisi</h3>
+                <p>Phasellus nec tortor elit, in porta ligula. Fusce at odio id tortor lacinia condimentum eu et arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean est ligula, porta et pellentesque eu, pulvinar nec ipsum.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Commodo luctus</em>        <a href="#">
+        <h2>Pellentesque Habitant Morbi Tristique Senectus</h2>
+        <p>Aliquam erat volutpat, in ornare libero aenean leo. Aenean in ligula pellentesque non sem id libero laoreet dictum.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+            
+    </div>
+        <!-- Column  -->
+    <div class="col">
+            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Vestibulum Est, Nulla Iaculis Ante Etiam Nunc Elementum Porta Ante</h2>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi mattis ut lacinia dignissim orci.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Phasellus Varius Rutrum Magna</h2>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Nunc mi Mauris Condimentum, est at Tempus Ullamcorper</h2>
+        <p>Donec rutrum proin lobortis purus nec libero. Pellentesque posuere diam vel quam. Mauris sed nisi nec leo accumsan interdum morbi massa.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Commodo luctus</em>        <a href="#">
+        <h2>Phasellus Aliquam Enim Molestie</h2>
+        <p>Vivamus eget orci in lorem commodo  aliquam. Nullam sem neque, feugiat facilisis, ornare quis rhoncus et turpis.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Donec ullamcorper</em>        <a href="#">
+        <h2>Vestibulum Ante Ipsum Primis in Faucibus Orci Luctus</h2>
+        <p>Duis facilisis fusce fringilla. Aliquam vitae mi quis ligula dapibus tempor. Praesent mauris tortor luctus ut aliquam at aliquam eu arcu.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/fond_de_tiroir_pierre_metivier_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Curabiturgravida, Lorem id Venenatis Sodales</h3>
+                <p>Donec rutrum proin lobortis purus nec libero. Pellentesque posuere diam vel quam. Mauris sed nisi nec leo accumsan interdum morbi massa.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@puppies</a></strong> and 9 others...</small>
+          <a href="#"><img src="/dummy/cache/pilots_earlier_at_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/dl_DieEgg_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/bird_familymwr_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/kuwayama_balazsgardi_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/garamon_ultra999_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/solar_flare_erupts_NASA_goddard_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/avatar_jessica_mullen_50x50.jpg" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/laughing_amir_kuckovic_400x275.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Duismollis</b>. Aliquam erat volutpat, in ornare libero aenean leo. Aenean in ligula pellentesque non sem id libero laoreet dictum.</p>
+                <h3>Duis ac Ligula at Sapien Faucibus Hendrerit</h3>
+                <p>Fusce dignissim lorem ac condimentum consequat, ipsum nisl eleifend quam a suscipit augue ante eget eros. Vivamus eget pede.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/prada_ivva_400x581.jpg" width="100%" height="" alt="" />
+                        <h3>Donec Volutpat Fringilla Purus</h3>
+                <p>Nulla condimentum convallis metus. Nunc varius phasellus odio velit, porttitor ac malesuada et molestie a ligula.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@berrycsuka</a></strong> and 8 others...</small>
+          <a href="#"><img src="/dummy/cache/avatar_socialspace_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/twitter_dungeon_orkboi_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/cliche_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/solar_flare_erupts_NASA_goddard_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/kuwayama_balazsgardi_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/jack_ny_laverrue_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/cliche_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/garamon_ultra999_50x50.gif" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+            
+    </div>
+        <!-- Column  -->
+    <div class="col">
+            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/1238_amir_kuckovic_400x581.jpg" width="100%" height="" alt="" />
+                        <h3>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@zaddog</a></strong> and 10 others...</small>
+          <a href="#"><img src="/dummy/cache/bird_familymwr_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/dl_DieEgg_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pattern_language_jessica_mullen_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/owling_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/avatar_jessica_mullen_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pilots_earlier_at_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/avatar_socialspace_50x50.gif" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/clinton_world_economic_forum_400x581.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Donec sed odio dui</b>. Donec rutrum proin lobortis purus nec libero. Pellentesque posuere diam vel quam. Mauris sed nisi nec leo accumsan interdum morbi massa.</p>
+                <h3>Curabiturgravida, Lorem id Venenatis Sodales</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/eastern_airline_cogdogblog_400x275.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Donec id elit</b>. Vivamus eget orci in lorem commodo  aliquam. Nullam sem neque, feugiat facilisis, ornare quis rhoncus et turpis.</p>
+                <h3>In Pellentesque Loremat Magna, Etiam Quis Dui</h3>
+                <p>Aliquam erat volutpat, in ornare libero aenean leo. Aenean in ligula pellentesque non sem id libero laoreet dictum.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Fusce Vitae Eros Nec Elit Placerat Pharetra</h2>
+        <p>Vivamus eget orci in lorem commodo  aliquam. Nullam sem neque, feugiat facilisis, ornare quis rhoncus et turpis.</p>
+        a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/jobs_gates_joi_ito_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Phasellus Varius Rutrum Magna</h3>
+                <p>Fusce et risus nonummy neque euismod pretium. Donec dignissim ligula vitae ipsum. Maecenas a velit eu lectus blandit blandit.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Donec Sednislegestas Ipsum Condimentum Bibendum</h2>
+        <p>Duis facilisis fusce fringilla. Aliquam vitae mi quis ligula dapibus tempor. Praesent mauris tortor luctus ut aliquam at aliquam eu arcu.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Nullam quis</em>        <a href="#">
+                <img src="/dummy/cache/sony_center_2__chris_st_400x581.jpg" width="100%" height="" alt="" />
+                        <p class="caption"><b>Duismollis</b>. Aliquam erat volutpat, in ornare libero aenean leo. Aenean in ligula pellentesque non sem id libero laoreet dictum.</p>
+                <h3>Nunc mi Mauris Condimentum, est at Tempus Ullamcorper</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@usernamegirl</a></strong> and 6 others...</small>
+          <a href="#"><img src="/dummy/cache/judd_avatar_chris_nixon_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/hepburn_jagelado_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/tcv_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/twitter_dungeon_orkboi_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/fjgaylor_tsand_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/shardrix_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/jack_ny_laverrue_50x50.jpg" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/operation_ice_bridge_NASA_goddard_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Donec Volutpat Fringilla Purus</h3>
+                <p>Fusce et risus nonummy neque euismod pretium. Donec dignissim ligula vitae ipsum. Maecenas a velit eu lectus blandit blandit.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+            
+    </div>
+        <!-- Column  -->
+    <div class="col">
+            <div class="article-wrapper">
+      <article>
+                <em>Donec ullamcorper</em>        <a href="#">
+        <h2>Sed id Dolor Nullam Gravida</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Donec ullamcorper</em>        <a href="#">
+        <h2>Pellentesque Habitant Morbi Tristique Senectus</h2>
+        <p>Aliquam erat volutpat, in ornare libero aenean leo. Aenean in ligula pellentesque non sem id libero laoreet dictum.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Nullam id dolor</em>        <a href="#">
+        <h2>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit</h2>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/centre_court_saragoldsmith_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Proin et Massa at Nisi</h3>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+        <h2>Donec in est Lacus</h2>
+        <p>Quisque tortor ut sapien diam malesuada at hendrerit ultricies dignissim nibh. Duis vel elit pellentesque.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                <em>Lorem ipsum</em>        <a href="#">
+        <h2>Phasellus Aliquam Enim Molestie</h2>
+        <p>Gravida eros ut consequat risus magna eget ligula. Nullam dui orci rhoncus vitae accumsan a varius vel. Etiam ut augue ut massa congue bibendum.</p>
+        </a>
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/eastern_airline_cogdogblog_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Phasellus elementum ultricies nulla a ultrices</h3>
+                <p>Vivamus eget orci in lorem commodo  aliquam. Nullam sem neque, feugiat facilisis, ornare quis rhoncus et turpis.</p>
+                </a>
+
+        <!-- Recommended -->
+              
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+      <hr/>            <div class="article-wrapper">
+      <article>
+                        <a href="#">
+                <img src="/dummy/cache/rania_world_economic_forum_400x275.jpg" width="100%" height="" alt="" />
+                        <h3>Curabiturgravida, Lorem id Venenatis Sodales</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+                </a>
+
+        <!-- Recommended -->
+                <p class="recommended">
+          <small>Recommended by <strong><a href="#">@catwelder</a></strong> and 7 others...</small>
+          <a href="#"><img src="/dummy/cache/tcv_JenXer_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/bird_familymwr_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/hepburn_jagelado_50x50.gif" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/pilots_earlier_at_50x50.jpg" width="25" height="25" /></a><a href="#"><img src="/dummy/cache/judd_avatar_chris_nixon_50x50.jpg" width="25" height="25" /></a>        </p>
+            
+            </article>
+      </div>
+      <!-- Render an HR if we're not on the last item in the loop.  -->
+            
+    </div>
+        <!-- End Column  -->
+    
+    <div class="clearfix"></div>
+        
+  <!-- Close Main -->
+  </div>
+
+  </body>
+</html>
